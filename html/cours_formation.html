@@ -1,43 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nos Formations - EFREI</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <section id="section-formations" class="wireframe-section">
-             <h3>--- Écran 2 : Nos Formations ---</h3>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Dépt. Info</a>
+            <div class="burger">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="formations.html">Formations</a></li>
+                <li><a href="equipe.html">Équipe</a></li>
+                <li><a href="contact.html">Contact & À propos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="intro-text-box box-center">
-                <p>Découvrez nos cursus allant de la Licence au Master, conçus pour vous apporter les compétences techniques et managériales recherchées par les entreprises.</p>
-            </div>
-
-            <div class="text-center mt-medium">
-                <button class="action-btn">Découvrir nos formations</button>
-            </div>
-
-            <div class="three-col-grid mt-large">
-                <div class="program-col">
-                    <div class="col-header box-center">Programme Grande École - Cycle Ingénieur</div>
-                    <div class="col-content dummy-text">Prépa intégrée... Cycle Ingénieur... Majeures...</div>
+    <main>
+        <h1>Nos Programmes</h1>
+        
+        <section>
+            <h2>Bachelors</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Cybersécurité & Réseaux</h3>
+                    <p>Objectif : Sécuriser les infrastructures vitales.</p>
+                    <ul>
+                        <li>Administration Systèmes</li>
+                        <li>Ethical Hacking</li>
+                    </ul>
                 </div>
-                <div class="program-col">
-                    <div class="col-header box-center">Programmes Experts - Tech & Numérique</div>
-                    <div class="col-content dummy-text">Bachelors et Mastères... Data, IA, Cybersécurité...</div>
+                <div class="card">
+                    <h3>Développeur Web & IA</h3>
+                    <p>Objectif : Créer les applications intelligentes de demain.</p>
+                    <ul>
+                        <li>Full-stack JS</li>
+                        <li>Machine Learning</li>
+                    </ul>
                 </div>
-                <div class="program-col">
-                    <div class="col-header box-center">Programmes Experts - Digital & Management</div>
-                    <div class="col-content dummy-text">Marketing Digital, Business, Communication...</div>
-                </div>
-            </div>
-
-            <div class="two-col-grid mt-large">
-                <div class="big-image-box box-center">Image</div>
-                <div class="big-image-box box-center">Image</div>
             </div>
         </section>
 
+        <section>
+            <h2>Cycle Ingénieur</h2>
+            <p>Majeures disponibles : Information Technology, Data Science, Software Engineering.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Niveau</th>
+                        <th>Type</th>
+                        <th>Stage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M1</td>
+                        <td>Initial / Alternance</td>
+                        <td>4 mois</td>
+                    </tr>
+                    <tr>
+                        <td>M2</td>
+                        <td>Alternance</td>
+                        <td>6 mois / PFE</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2025 Département Informatique EFREI.</p>
+        <p><a href="contact.html">À propos de l'équipe projet</a></p>
+    </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
