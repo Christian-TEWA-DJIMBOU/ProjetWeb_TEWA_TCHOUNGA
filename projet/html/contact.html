@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact - Prenez rendez-vous avec le département d'informatique de l'EFREI. Admission, questions, partenariats.">
+    <meta name="keywords" content="contact, admission, partenariat, stage, alternance">
+    <title>Contact - Département d'Informatique EFREI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>EFREI</h1>
+                <span class="department">Informatique</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="formations.html" class="nav-link">Formations</a></li>
+                    <li><a href="equipe.html" class="nav-link">Équipe</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Title -->
+        <section class="page-header">
+            <h2>Nous Contacter</h2>
+            <p>Posez-nous vos questions, nous sommes à votre écoute</p>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-section" aria-label="Informations de contact et formulaire">
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <aside class="contact-info" role="complementary">
+                    <h3>Informations de Contact</h3>
+                    
+                    <div class="info-block">
+                        <h4>Adresse</h4>
+                        <address>
+                            EFREI Paris<br>
+                            30-32 Avenue de la République<br>
+                            94800 Villejuif, France
+                        </address>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Téléphone</h4>
+                        <p>
+                            <a href="tel:+33144081313">+33 1 44 08 13 13</a>
+                        </p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Email</h4>
+                        <p>
+                            Admissions: <a href="mailto:admission@efrei.fr">admission@efrei.fr</a><br>
+                            Direction: <a href="mailto:direction@efrei.fr">direction@efrei.fr</a><br>
+                            Général: <a href="mailto:info@efrei.fr">info@efrei.fr</a>
+                        </p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>Horaires</h4>
+                        <p>
+                            Lundi - Vendredi: 9h00 - 18h00<br>
+                            Samedi: Sur rendez-vous<br>
+                            Dimanche: Fermé
+                        </p>
+                    </div>
+
+                    <div class="social-links">
+                        <h4>Suivez-nous</h4>
+                        <div class="social-icons" role="list">
+                            <a href="#" class="social-icon" role="listitem" aria-label="Facebook">f</a>
+                            <a href="#" class="social-icon" role="listitem" aria-label="LinkedIn">in</a>
+                            <a href="#" class="social-icon" role="listitem" aria-label="Twitter">tw</a>
+                            <a href="#" class="social-icon" role="listitem" aria-label="Instagram">ig</a>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h3>Formulaire de Contact</h3>
+                    <form class="contact-form" id="contactForm" novalidate aria-label="Formulaire de contact">
+                        <div class="form-group">
+                            <label for="name">Nom Complet <span aria-label="obligatoire">*</span></label>
+                            <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameHint">
+                            <span id="nameHint" class="form-hint sr-only">Entrez votre nom complet</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span aria-label="obligatoire">*</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailHint">
+                            <span id="emailHint" class="form-hint sr-only">Entrez votre adresse email</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet <span aria-label="obligatoire">*</span></label>
+                            <select id="subject" name="subject" required aria-required="true">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="admission">Admission</option>
+                                <option value="formation">Question sur les formations</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="stage">Stage / Alternance</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message <span aria-label="obligatoire">*</span></label>
+                            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Envoyer le Message</button>
+                        <p class="form-notice" id="formNotice" role="alert" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section (Placeholder) -->
+        <section class="map-section" aria-label="Localisation">
+            <div class="map-placeholder" role="img" aria-label="Campus EFREI à Villejuif">
+                <p>Carte d'accès - Campus EFREI, Villejuif</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" aria-label="Questions fréquentes">
+            <div class="formations-container">
+                <h2>Questions Fréquentes</h2>
+                <div class="faq-grid" role="region" aria-label="Liste des questions fréquentes">
+                    <div class="faq-item">
+                        <h4>Comment candidater aux formations?</h4>
+                        <p>Vous pouvez déposer votre candidature via notre plateforme en ligne. Consultez les critères d'admission spécifiques à chaque programme.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Quels sont les frais de scolarité?</h4>
+                        <p>Les frais varient selon le programme choisi. Contactez-nous pour obtenir des informations détaillées et les conditions de financement.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Y a-t-il des bourses disponibles?</h4>
+                        <p>Oui, nous proposons plusieurs bourses d'études basées sur le mérite et la situation financière. Renseignez-vous auprès du département des admissions.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Proposez-vous des stages en entreprise?</h4>
+                        <p>Absolument. Nos programmes incluent des stages obligatoires. Nous avons des partenariats avec de nombreuses entreprises leaders.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Peut-on suivre les formations en alternance?</h4>
+                        <p>Oui, plusieurs de nos programmes offrent des options d'alternance école-entreprise pour une meilleure insertion professionnelle.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Quel est le taux d'insertion des diplômés?</h4>
+                        <p>Notre taux d'insertion professionnelle est de 95% dans les 6 mois suivant la graduation, avec des salaires compétitifs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="#">Admission</a></li>
+                    <li><a href="#">Partenaires</a></li>
+                    <li><a href="#">Vie Étudiante</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:info@efrei.fr">info@efrei.fr</a></p>
+                <p>Téléphone: +33 1 XX XX XX XX</p>
+                <p>Adresse: Campus EFREI, Villejuif, France</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Département d'Informatique - EFREI. Tous droits réservés.</p>
+            <p><a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>

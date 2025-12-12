@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vie Étudiante - Campus EFREI, clubs, associations, et projets étudiants.">
+    <meta name="keywords" content="vie étudiante, campus, clubs, associations, projets">
+    <title>Vie Étudiante & Campus - Département d'Informatique EFREI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="vie-etudiante.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>EFREI</h1>
+                <span class="department">Informatique</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="formations.html" class="nav-link">Formations</a></li>
+                    <li><a href="equipe.html" class="nav-link">Équipe</a></li>
+                    <li><a href="vie-etudiante.html" class="nav-link active">Vie Étudiante</a></li>
+                    <li><a href="partenariats.html" class="nav-link">Partenariats</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h2>Vie Étudiante & Campus</h2>
+            <p>Découvrez la vie dynamique du campus EFREI</p>
+        </section>
+
+        <!-- Campus Facilities -->
+        <section class="facilities-section">
+            <div class="formations-container">
+                <h2>Installations et Moyens</h2>
+                <div class="facilities-grid">
+                    <div class="facility-card">
+                        <div class="facility-image" style="background-color: #e8f4f8; height: 200px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
+                            Image Lab Informatique
+                        </div>
+                        <h3>Labs Informatiques</h3>
+                        <p>Des salles équipées de matériel dernier cri pour les travaux pratiques et projets.</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image" style="background-color: #f0e8f8; height: 200px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
+                            Image Espace Coworking
+                        </div>
+                        <h3>Espaces de Coworking</h3>
+                        <p>Zones de travail collaboratif pour les projets en groupe et les startup étudiantes.</p>
+                    </div>
+                    <div class="facility-card">
+                        <div class="facility-image" style="background-color: #f8f0e8; height: 200px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
+                            Image Bibliothèque
+                        </div>
+                        <h3>Ressources Pédagogiques</h3>
+                        <p>Accès à OpenClassrooms, LinkedIn Learning et autres plateformes d'apprentissage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clubs & Associations -->
+        <section class="clubs-section">
+            <div class="formations-container">
+                <h2>Clubs et Associations</h2>
+                <div class="clubs-grid">
+                    <div class="club-card">
+                        <h3>Club de Programmation</h3>
+                        <p>Competitions de coding, hackathons, et développement collaboratif de projets open-source.</p>
+                        <a href="contact.html" class="btn btn-secondary">Rejoindre</a>
+                    </div>
+                    <div class="club-card">
+                        <h3>Club Cybersécurité & CTF</h3>
+                        <p>Participate aux Capture The Flag et formations en sécurité informatique avancée.</p>
+                        <a href="contact.html" class="btn btn-secondary">Rejoindre</a>
+                    </div>
+                    <div class="club-card">
+                        <h3>Club IA & Data Science</h3>
+                        <p>Explorez l'IA et le machine learning avec des workshops et des projets innovants.</p>
+                        <a href="contact.html" class="btn btn-secondary">Rejoindre</a>
+                    </div>
+                    <div class="club-card">
+                        <h3>Club Robotique</h3>
+                        <p>Concevoir et programmer des robots pour des compétitions nationales et internationales.</p>
+                        <a href="contact.html" class="btn btn-secondary">Rejoindre</a>
+                    </div>
+                    <div class="club-card">
+                        <h3>Club E-Sport</h3>
+                        <p>Tournaments et communauté gaming pour les passionnés de jeux vidéo compétitifs.</p>
+                        <a href="contact.html" class="btn btn-secondary">Rejoindre</a>
+                    </div>
+                    <div class="club-card">
+                        <h3>Junior Entreprise</h3>
+                        <p>Services IT pour les PME et apprentissage du management et entrepreneuriat.</p>
+                        <a href="contact.html" class="btn btn-secondary">Rejoindre</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Testimonials -->
+        <section class="testimonials-section">
+            <div class="formations-container">
+                <h2>Témoignages d'Étudiants</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-author-image" style="width: 60px; height: 60px; background-color: #e0e0e0; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
+                            Photo
+                        </div>
+                        <p class="testimonial-text">"EFREI m'a permis d'acquérir des compétences pratiques et de créer un réseau professionnel solide. Les projets en groupe et les stages ont vraiment fait la différence."</p>
+                        <p class="testimonial-author">- Marie Dupont, Promo 2023</p>
+                        <p class="testimonial-role">Développeuse Full Stack chez Google</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author-image" style="width: 60px; height: 60px; background-color: #e0e0e0; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
+                            Photo
+                        </div>
+                        <p class="testimonial-text">"La pédagogie d'EFREI est très orientée vers la pratique. J'ai pu travailler sur des projets réels et apprendre directement des experts du secteur."</p>
+                        <p class="testimonial-author">- Thomas Moreau, Promo 2022</p>
+                        <p class="testimonial-role">Data Scientist chez Microsoft</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author-image" style="width: 60px; height: 60px; background-color: #e0e0e0; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: #999;">
+                            Photo
+                        </div>
+                        <p class="testimonial-text">"L'environnement collaboratif et les clubs étudiants ont enrichi ma formation. C'est bien plus qu'une école, c'est une communauté."</p>
+                        <p class="testimonial-author">- Sophie Leblanc, Promo 2021</p>
+                        <p class="testimonial-role">Ingénieur Sécurité chez Thales</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Projects Gallery -->
+        <section class="projects-section">
+            <div class="formations-container">
+                <h2>Projets Étudiants Remarquables</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 200px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; color: white;">
+                            Projet 1
+                        </div>
+                        <h3>Application Web de Gestion</h3>
+                        <p>Plateforme SaaS développée en React et Node.js pour la gestion de projets en équipe.</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 200px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; color: white;">
+                            Projet 2
+                        </div>
+                        <h3>Système de Détection d'Intrusion</h3>
+                        <p>IDS basé sur le machine learning pour détecter les anomalies réseau en temps réel.</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 200px; border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; color: white;">
+                            Projet 3
+                        </div>
+                        <h3>Robot Autonome</h3>
+                        <p>Robot mobile capable de naviguer autonomement et effectuer des tâches programmées.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-content">
+                <h2>Prêt à vivre l'expérience EFREI?</h2>
+                <p>Rejoignez notre communauté dynamique d'étudiants passionnés</p>
+                <a href="contact.html" class="btn btn-primary">Nous Contacter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="formations.html">Formations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="vie-etudiante.html">Vie Étudiante</a></li>
+                    <li><a href="partenariats.html">Partenariats</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="#">Admission</a></li>
+                    <li><a href="#">Partenaires</a></li>
+                    <li><a href="#">Vie Étudiante</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:info@efrei.fr">info@efrei.fr</a></p>
+                <p>Téléphone: +33 1 XX XX XX XX</p>
+                <p>Adresse: Campus EFREI, Villejuif, France</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Département d'Informatique - EFREI. Tous droits réservés.</p>
+            <p><a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

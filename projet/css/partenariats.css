@@ -1,0 +1,231 @@
+/* Partenariats Page Specific Styles */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #003d66 100%);
+  color: var(--text-light);
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.page-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.partners-section,
+.internships-section,
+.career-stats-section,
+.job-positions-section {
+  padding: 4rem 2rem;
+}
+
+.partners-section {
+  background-color: var(--bg-light);
+}
+
+.partners-section h2,
+.internships-section h2,
+.career-stats-section h2,
+.job-positions-section h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.partner-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  animation: fadeInUp 0.6s ease-out backwards;
+  text-align: center;
+}
+
+.partner-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.partner-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.partner-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.partner-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.partner-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.partner-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.partner-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 116, 217, 0.15);
+  transform: translateY(-5px);
+}
+
+.partner-card h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.partner-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.internships-section {
+  background-color: white;
+}
+
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.internship-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.internship-card:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 0 15px 40px rgba(0, 116, 217, 0.15);
+}
+
+.internship-card h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.internship-card ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.internship-card li {
+  padding: 0.6rem 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.career-stats-section {
+  background-color: var(--bg-light);
+}
+
+.career-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.stat-box:hover {
+  box-shadow: 0 10px 30px rgba(0, 116, 217, 0.1);
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-text {
+  color: #666;
+  font-size: 1rem;
+}
+
+.job-positions-section {
+  background-color: white;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.job-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.job-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 116, 217, 0.1);
+  transform: translateX(5px);
+}
+
+.job-card h4 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.job-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .page-header h2 {
+    font-size: 2rem;
+  }
+
+  .partners-section h2,
+  .internships-section h2,
+  .career-stats-section h2,
+  .job-positions-section h2 {
+    font-size: 2rem;
+  }
+
+  .partners-grid,
+  .internship-grid,
+  .career-stats-grid,
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+}

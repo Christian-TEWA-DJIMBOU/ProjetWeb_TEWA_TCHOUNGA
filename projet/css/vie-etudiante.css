@@ -1,0 +1,173 @@
+/* Vie Étudiante Page Specific Styles */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #003d66 100%);
+  color: var(--text-light);
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.page-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.facilities-section,
+.clubs-section,
+.testimonials-section,
+.projects-section {
+  padding: 4rem 2rem;
+}
+
+.facilities-section {
+  background-color: var(--bg-light);
+}
+
+.facilities-section h2,
+.clubs-section h2,
+.testimonials-section h2,
+.projects-section h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.facilities-grid,
+.clubs-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.facility-card,
+.club-card,
+.project-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.facility-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.facility-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.facility-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.facility-card:hover,
+.club-card:hover,
+.project-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 116, 217, 0.15);
+  transform: translateY(-5px);
+}
+
+.facility-card h3,
+.club-card h3,
+.project-card h3 {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.facility-card p,
+.club-card p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.clubs-section {
+  background-color: white;
+}
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+}
+
+.project-card h3 {
+  margin-top: 1.5rem;
+}
+
+.testimonials-section {
+  background-color: var(--bg-light);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--secondary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 116, 217, 0.1);
+  transform: translateY(-5px);
+}
+
+.testimonial-text {
+  color: #666;
+  font-style: italic;
+  margin: 1rem 0;
+  line-height: 1.8;
+}
+
+.testimonial-author {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-role {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .page-header h2 {
+    font-size: 2rem;
+  }
+
+  .facilities-section h2,
+  .clubs-section h2,
+  .testimonials-section h2,
+  .projects-section h2 {
+    font-size: 2rem;
+  }
+
+  .facilities-grid,
+  .clubs-grid,
+  .testimonials-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
