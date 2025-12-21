@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "keywords": ["bonjour", "salut", "hello"],
+      "response": "Bonjour ! Comment puis‑je vous aider aujourd'hui ?"
+    },
+    {
+      "keywords": ["services", "offres", "propos", "faire"],
+      "response": "Nous proposons des formations et cursus en informatique couvrant l'IA, la cybersécurité, la data et le digital. Consultez la page Formations pour en savoir davantage."
+    },
+    {
+      "keywords": ["contact", "email", "adresse", "infos"],
+      "response": "Vous pouvez nous contacter via le formulaire à gauche ou en envoyant un email à info@efrei.fr."
+    },
+    {
+      "keywords": ["devis", "tarif", "prix", "coût"],
+      "response": "Pour toute demande personnalisée, précisez votre projet et notre équipe vous répondra rapidement."
+    },
+    {
+      "keywords": ["merci", "thanks", "ok"],
+      "response": "C'est un plaisir de vous aider ! N'hésitez pas à poser d'autres questions."
+    }
+  ]
+}
