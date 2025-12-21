@@ -141,8 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /*--------------------------------------
    * Chatbot flottant (conctact.html)
    *--------------------------------------*/
+  // Remarque : La logique complète du chatbot est désormais définie en dehors
+  // de ce gestionnaire DOMContentLoaded pour éviter des conflits et doublons.
+  // Nous désactivons donc ici l’implémentation d’origine en forçant la
+  // condition à false. Le code du chatbot situé après cet écouteur
+  // gère l’ouverture/fermeture et les réponses.
   const chatbotWidget = document.getElementById('chatbotWidget');
-  if (chatbotWidget) {
+  if (false && chatbotWidget) {
     const toggleBtn = chatbotWidget.querySelector('#chatbotToggle');
     const panel = chatbotWidget.querySelector('#chatbotPanel');
     const closeBtn = chatbotWidget.querySelector('#chatbotClose');

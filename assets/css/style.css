@@ -7,6 +7,237 @@
     --text-color: #333;
 }
 
+/*
+ * =====================================================
+ *  Styles pour le widget chatbot flottant
+ *
+ *  Ce bloc ajoute un chatbot moderne et rétractable sans
+ *  perturber la structure existante du site. Les règles ci‑dessous
+ *  ciblent uniquement les éléments portant des classes .chatbot*
+ *  afin de ne pas impacter le reste du design. L’attribut
+ *  `hidden` est également forcé pour s’assurer que le panneau
+ *  se masque correctement lorsque l’on clique sur le bouton.
+ * =====================================================
+ */
+
+.chatbot-section {
+    margin-top: 32px;
+}
+
+/* Conteneur racine */
+.chatbot {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+}
+
+/* Bouton flottant */
+.chatbot__fab {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    background: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.chatbot__fab:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.chatbot__fabLabel {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Panneau de discussion */
+.chatbot__panel {
+    width: 360px;
+    max-width: calc(100vw - 36px);
+    height: 520px;
+    max-height: calc(100vh - 110px);
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Assurer que le panneau se cache lorsque l’attribut hidden est présent */
+.chatbot__panel[hidden] {
+    display: none !important;
+}
+
+/* En‑tête du panneau */
+.chatbot__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 12px;
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.chatbot__title strong {
+    display: block;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.chatbot__status {
+    display: inline-block;
+    margin-top: 2px;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.chatbot__close {
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chatbot__close:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* Zone des messages */
+.chatbot__messages {
+    padding: 12px;
+    overflow-y: auto;
+    flex: 1;
+    background: #f6f7fb;
+}
+
+/* Messages */
+.chatbot__msg {
+    display: flex;
+    margin: 10px 0;
+}
+
+.chatbot__msg--user {
+    justify-content: flex-end;
+}
+
+.chatbot__bubble {
+    max-width: 84%;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.35;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Bulles du bot */
+.chatbot__msg--bot .chatbot__bubble {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--text-color);
+    border-top-left-radius: 6px;
+}
+
+/* Bulles de l’utilisateur */
+.chatbot__msg--user .chatbot__bubble {
+    background: var(--primary-blue);
+    color: var(--white);
+    border-top-right-radius: 6px;
+}
+
+/* Suggestions rapides */
+.chatbot__quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.chatbot__chip {
+    border: 1px solid rgba(11, 58, 106, 0.35);
+    background: rgba(11, 58, 106, 0.06);
+    color: var(--primary-blue);
+    padding: 7px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.chatbot__chip:hover {
+    background: rgba(11, 58, 106, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Barre de saisie */
+.chatbot__inputBar {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.chatbot__inputBar input {
+    flex: 1;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.chatbot__inputBar input:focus {
+    border-color: rgba(11, 58, 106, 0.6);
+    box-shadow: 0 0 0 3px rgba(11, 58, 106, 0.15);
+}
+
+.chatbot__inputBar button {
+    border: none;
+    background: var(--primary-blue);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.chatbot__inputBar button:hover {
+    opacity: 0.95;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 420px) {
+    .chatbot {
+        right: 12px;
+        bottom: 12px;
+    }
+    .chatbot__panel {
+        width: calc(100vw - 24px);
+        height: 68vh;
+    }
+    .chatbot__fabLabel {
+        display: none;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
