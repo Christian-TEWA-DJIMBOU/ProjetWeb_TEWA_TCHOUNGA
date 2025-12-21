@@ -48,16 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const match = text.match(/\d+/g);
       if (!match) return;
       const target = parseInt(match.join(''), 10);
-      const suffix = text.replace(/\d+/g, '');
+      const prefixMatch = text.match(/^[^0-9]+/);
+      const suffixMatch = text.match(/[^0-9]+$/);
+      const prefix = prefixMatch ? prefixMatch[0] : '';
+      const suffix = suffixMatch ? suffixMatch[0] : '';
       let count = 0;
       const increment = Math.ceil(target / 200);
       const updateCounter = () => {
         if (count < target) {
           count += increment;
-          el.textContent = (count > target ? target : count) + suffix;
+          el.textContent = prefix + (count > target ? target : count) + suffix;
           setTimeout(updateCounter, 20);
         } else {
-          el.textContent = target + suffix;
+          el.textContent = prefix + target + suffix;
         }
       };
       updateCounter();
@@ -89,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /*--------------------------------------
    * Afficher/masquer les détails des cartes (equipe.html)
    *--------------------------------------*/
-  const teamCards = document.querySelectorAll('.card');
+  const legacyTeamGrid = document.getElementById('teamGrid');
+  const teamCards = legacyTeamGrid ? legacyTeamGrid.querySelectorAll('.card') : [];
   if (teamCards.length) {
     teamCards.forEach((card) => {
       card.style.cursor = 'pointer';
@@ -105,6 +109,409 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     });
+  }
+
+  /*--------------------------------------
+   * Carrousel professeurs (equipe.html)
+   *--------------------------------------*/
+  const teacherTrack = document.getElementById('teacherTrack');
+  if (teacherTrack) {
+    const btnPrev = document.querySelector('[data-carousel-prev]');
+    const btnNext = document.querySelector('[data-carousel-next]');
+    let autoplayId = null;
+
+    const flipButtons = teacherTrack.querySelectorAll('.flip-card-front, .flip-card-back');
+    if (flipButtons.length) {
+      flipButtons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const flipCard = btn.closest('.flip-card');
+          if (!flipCard) return;
+          flipCard.classList.toggle('is-flipped');
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+          e.stopPropagation();
+          const flipCard = btn.closest('.flip-card');
+          if (!flipCard) return;
+          flipCard.classList.toggle('is-flipped');
+        });
+      });
+    }
+
+    const getScrollStep = () => {
+      const firstCard = teacherTrack.querySelector('.teacher-card');
+      const style = window.getComputedStyle(teacherTrack);
+      const gap = parseInt(style.gap || '16', 10) || 16;
+      const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 300;
+      return Math.round(cardWidth + gap);
+    };
+
+    const isAtEnd = () => {
+      return Math.ceil(teacherTrack.scrollLeft + teacherTrack.clientWidth) >= teacherTrack.scrollWidth;
+    };
+
+    const scrollByStep = (direction) => {
+      const step = getScrollStep();
+      teacherTrack.scrollBy({ left: direction * step, behavior: 'smooth' });
+    };
+
+    const goToStart = () => {
+      teacherTrack.scrollTo({ left: 0, behavior: 'smooth' });
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayId) {
+        clearInterval(autoplayId);
+        autoplayId = null;
+      }
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      autoplayId = setInterval(() => {
+        if (isAtEnd()) {
+          goToStart();
+        } else {
+          scrollByStep(1);
+        }
+      }, 3200);
+    };
+
+    if (btnPrev) {
+      btnPrev.addEventListener('click', () => {
+        stopAutoplay();
+        scrollByStep(-1);
+        startAutoplay();
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener('click', () => {
+        stopAutoplay();
+        if (isAtEnd()) {
+          goToStart();
+        } else {
+          scrollByStep(1);
+        }
+        startAutoplay();
+      });
+    }
+
+    teacherTrack.addEventListener('mouseenter', () => stopAutoplay());
+    teacherTrack.addEventListener('mouseleave', () => startAutoplay());
+    teacherTrack.addEventListener('focusin', () => stopAutoplay());
+    teacherTrack.addEventListener('focusout', () => startAutoplay());
+
+    teacherTrack.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        stopAutoplay();
+        scrollByStep(-1);
+        startAutoplay();
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        stopAutoplay();
+        scrollByStep(1);
+        startAutoplay();
+      }
+    });
+
+    startAutoplay();
+  }
+
+  const teamGrid = document.getElementById('teamGrid');
+  const teamSearch = document.getElementById('teamSearch');
+  const teamEmpty = document.getElementById('teamEmpty');
+  const teamModal = document.getElementById('teamModal');
+  const teamModalBody = document.getElementById('teamModalBody');
+  const teamFilterButtons = document.querySelectorAll('.team-filter');
+
+  if (teamGrid) {
+    const teamMembers = [
+      {
+        id: 'dupont',
+        name: 'Dr. Michel Dupont',
+        title: 'Enseignant‑chercheur',
+        domain: 'ia',
+        speciality: 'Intelligence Artificielle',
+        bio: "Spécialiste en IA et Machine Learning, avec une approche orientée produit et recherche appliquée.",
+        tags: ['Machine Learning', 'Deep Learning', 'IA responsable'],
+        courses: ['IA & Machine Learning', 'Projet IA', 'MLOps (intro)'],
+        research: ['Robustesse des modèles', 'Explicabilité', 'NLP & classification'],
+        email: 'michel.dupont@efrei.fr'
+      },
+      {
+        id: 'bernard',
+        name: 'Dr. Sarah Bernard',
+        title: 'Responsable pédagogique sécurité',
+        domain: 'cyber',
+        speciality: 'Cybersécurité',
+        bio: "Experte en cybersécurité, audit et protection des données. Intervient sur les volets défensifs et gouvernance.",
+        tags: ['Cryptographie', 'SOC', 'Sécurité Cloud'],
+        courses: ['Sécurité des SI', 'Audit & conformité', 'Atelier CTF'],
+        research: ['Détection d’intrusions', 'Privacy by design', 'Threat modeling'],
+        email: 'sarah.bernard@efrei.fr'
+      },
+      {
+        id: 'moreau',
+        name: 'Dr. Pierre Moreau',
+        title: 'Intervenant expert',
+        domain: 'web',
+        speciality: 'Développement Web',
+        bio: "Expert en architectures web modernes et industrialisation (CI/CD). Accompagne les projets full‑stack.",
+        tags: ['Full‑stack', 'API', 'DevOps'],
+        courses: ['Web avancé', 'Architecture logicielle', 'CI/CD'],
+        research: ['Qualité logicielle', 'Microservices', 'Observabilité'],
+        email: 'pierre.moreau@efrei.fr'
+      },
+      {
+        id: 'leclerc',
+        name: 'Dr. Anne Leclerc',
+        title: 'Enseignante‑chercheuse',
+        domain: 'data',
+        speciality: 'Big Data',
+        bio: "Spécialiste du traitement des données massives, de la gouvernance data et de la mise en production des pipelines.",
+        tags: ['Big Data', 'Spark', 'Data Quality'],
+        courses: ['Data engineering', 'Traitement distribué', 'Projet data'],
+        research: ['Data observability', 'Feature stores', 'Optimisation des pipelines'],
+        email: 'anne.leclerc@efrei.fr'
+      },
+      {
+        id: 'leblanc',
+        name: 'Dr. Jean Leblanc',
+        title: 'Responsable IoT',
+        domain: 'iot',
+        speciality: 'Systèmes Embarqués',
+        bio: "Expert en systèmes embarqués et IoT. Travaille sur l’edge, le temps réel et la sécurité des objets connectés.",
+        tags: ['IoT', 'Embedded', 'Robotique'],
+        courses: ['Systèmes embarqués', 'IoT & edge', 'Robotique'],
+        research: ['Sécurité embarquée', 'Edge analytics', 'Optimisation énergétique'],
+        email: 'jean.leblanc@efrei.fr'
+      },
+      {
+        id: 'martin',
+        name: 'Dr. Céline Martin',
+        title: 'Experte cloud',
+        domain: 'cloud',
+        speciality: 'Cloud Computing',
+        bio: "Architecte cloud certifiée. Accompagne les sujets de déploiement, conteneurs, sécurité et fiabilité.",
+        tags: ['AWS', 'Kubernetes', 'Architecture'],
+        courses: ['Cloud computing', 'Containers & Kubernetes', 'SRE (intro)'],
+        research: ['MLOps', 'FinOps', 'Fiabilité des systèmes'],
+        email: 'celine.martin@efrei.fr'
+      },
+      {
+        id: 'diallo',
+        name: 'Dr. Aïssatou Diallo',
+        title: 'Enseignante‑chercheuse',
+        domain: 'ia',
+        speciality: 'Vision & IA embarquée',
+        bio: "Travaille sur la vision par ordinateur et les modèles légers déployés en edge/IoT.",
+        tags: ['Vision', 'Edge AI', 'Optimisation'],
+        courses: ['Vision par ordinateur', 'IA embarquée', 'Projet vision'],
+        research: ['Compression de modèles', 'Détection temps réel', 'Datasets & biais'],
+        email: 'aissatou.diallo@efrei.fr'
+      },
+      {
+        id: 'nguyen',
+        name: 'Dr. Minh Nguyen',
+        title: 'Intervenant expert',
+        domain: 'cyber',
+        speciality: 'Sécurité applicative',
+        bio: "Spécialiste sécurité applicative : analyse de code, pentest, durcissement et sécurisation des APIs.",
+        tags: ['Pentest', 'OWASP', 'Sécurité API'],
+        courses: ['Sécurité applicative', 'Pentest (atelier)', 'Secure coding'],
+        research: ['Détection de vulnérabilités', 'Supply chain', 'Sécurité CI/CD'],
+        email: 'minh.nguyen@efrei.fr'
+      }
+    ];
+
+    let activeFilter = 'all';
+    let lastFocusedElement = null;
+
+    const getInitials = (name) => {
+      const cleaned = name.replace(/Dr\./g, '').trim();
+      const parts = cleaned.split(/\s+/).filter(Boolean);
+      const first = parts[0] ? parts[0][0] : '';
+      const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+      return (first + last).toUpperCase();
+    };
+
+    const normalize = (value) => (value || '').toString().toLowerCase();
+
+    const matchesFilter = (member) => {
+      if (activeFilter === 'all') return true;
+      return member.domain === activeFilter;
+    };
+
+    const matchesSearch = (member, query) => {
+      if (!query) return true;
+      const haystack = [
+        member.name,
+        member.title,
+        member.speciality,
+        member.bio,
+        ...(member.tags || []),
+        ...(member.courses || []),
+        ...(member.research || [])
+      ]
+        .map((v) => normalize(v))
+        .join(' ');
+      return haystack.includes(query);
+    };
+
+    const clearGrid = () => {
+      while (teamGrid.firstChild) teamGrid.removeChild(teamGrid.firstChild);
+    };
+
+    const renderTag = (text) => {
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = text;
+      return span;
+    };
+
+    const renderCard = (member) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'team-card';
+      btn.dataset.teamId = member.id;
+
+      const top = document.createElement('div');
+      top.className = 'team-card__top';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'team-avatar';
+      avatar.textContent = getInitials(member.name);
+
+      const info = document.createElement('div');
+      const h3 = document.createElement('h3');
+      h3.className = 'team-card__name';
+      h3.textContent = member.name;
+
+      const title = document.createElement('p');
+      title.className = 'team-card__title';
+      title.textContent = member.speciality;
+
+      info.appendChild(h3);
+      info.appendChild(title);
+
+      top.appendChild(avatar);
+      top.appendChild(info);
+
+      const bio = document.createElement('p');
+      bio.className = 'team-card__bio';
+      bio.textContent = member.bio;
+
+      const tags = document.createElement('div');
+      tags.className = 'team-card__tags';
+      (member.tags || []).slice(0, 4).forEach((t) => tags.appendChild(renderTag(t)));
+
+      btn.appendChild(top);
+      btn.appendChild(bio);
+      btn.appendChild(tags);
+
+      btn.addEventListener('click', () => openMemberModal(member));
+      return btn;
+    };
+
+    const renderList = () => {
+      const query = normalize(teamSearch ? teamSearch.value.trim() : '');
+      const results = teamMembers.filter((m) => matchesFilter(m) && matchesSearch(m, query));
+      clearGrid();
+      results.forEach((member) => teamGrid.appendChild(renderCard(member)));
+      if (teamEmpty) {
+        teamEmpty.hidden = results.length !== 0;
+      }
+    };
+
+    const buildModalContent = (member) => {
+      const tagsHtml = (member.tags || []).map((t) => `<span class="tag">${t}</span>`).join(' ');
+      const coursesHtml = (member.courses || []).map((c) => `<li>${c}</li>`).join('');
+      const researchHtml = (member.research || []).map((r) => `<li>${r}</li>`).join('');
+      const email = member.email ? `<a class="btn-primary" href="mailto:${member.email}">Contacter</a>` : '';
+
+      return `
+        <div class="team-modalHeader">
+          <div class="team-avatar">${getInitials(member.name)}</div>
+          <div>
+            <h2>${member.name}</h2>
+            <p class="team-modalMeta">${member.title} · ${member.speciality}</p>
+            <div class="team-card__tags">${tagsHtml}</div>
+          </div>
+        </div>
+        <div class="team-modalGrid">
+          <div class="team-modalBlock">
+            <h3>À propos</h3>
+            <p>${member.bio}</p>
+          </div>
+          <div class="team-modalBlock">
+            <h3>Cours & encadrement</h3>
+            <ul>${coursesHtml}</ul>
+          </div>
+          <div class="team-modalBlock">
+            <h3>Recherche & sujets</h3>
+            <ul>${researchHtml}</ul>
+          </div>
+        </div>
+        <div class="team-modalActions">
+          ${email}
+          <a class="btn-link" href="#collaborer">Proposer un projet</a>
+        </div>
+      `;
+    };
+
+    const closeMemberModal = () => {
+      if (!teamModal) return;
+      teamModal.hidden = true;
+      document.body.classList.remove('no-scroll');
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+      lastFocusedElement = null;
+    };
+
+    const openMemberModal = (member) => {
+      if (!teamModal || !teamModalBody) return;
+      lastFocusedElement = document.activeElement;
+      teamModalBody.innerHTML = buildModalContent(member);
+      teamModal.hidden = false;
+      document.body.classList.add('no-scroll');
+      const closeButton = teamModal.querySelector('.team-modal__close');
+      closeButton?.focus();
+    };
+
+    teamFilterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        teamFilterButtons.forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activeFilter = btn.getAttribute('data-team-filter') || 'all';
+        renderList();
+      });
+    });
+
+    teamSearch?.addEventListener('input', () => renderList());
+
+    teamModal?.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!(target instanceof HTMLElement)) return;
+      if (target.hasAttribute('data-team-modal-close')) {
+        closeMemberModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && teamModal && !teamModal.hidden) {
+        closeMemberModal();
+      }
+    });
+
+    renderList();
   }
 
   /*--------------------------------------

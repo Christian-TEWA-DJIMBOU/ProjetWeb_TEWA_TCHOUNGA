@@ -25,115 +25,387 @@
     <main>
         <section class="news-section" style="text-align:center;">
             <span class="pill">Équipe</span>
-            <h1>Notre Équipe Enseignante</h1>
-            <p>Des experts passionnés par la transmission du savoir</p>
+            <h1>Équipe pédagogique – Département Informatique</h1>
+            <p>Insère facilement tes visuels : chaque carte ne contient qu’une image (tu peux utiliser des images qui affichent déjà le nom et la matière).</p>
         </section>
 
-        <section class="team-section">
+        <section class="team-section" id="equipe">
             <div class="program-section__header">
-                <h2>Rencontrez nos professeurs</h2>
+                <h2>Nos professeurs</h2>
                 <p>
-                    Notre département réunit des professeurs expérimentés, experts dans leurs domaines respectifs.
-                    Avec une forte culture projet et recherche, ils sont dédiés à offrir une formation de qualité.
+                    Remplace simplement la valeur du <strong>src</strong> dans chaque balise <strong>img</strong> par ta photo.
+                    Tu peux aussi dupliquer une carte si tu veux ajouter d’autres professeurs.
                 </p>
             </div>
 
-            <div class="grid-container">
-                <div class="card">
-                    <div style="width:84px; height:84px; border-radius:50%; background: var(--primary-blue); color: var(--white); display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:12px;">Dr. M.</div>
-                    <h3>Dr. Michel Dupont</h3>
-                    <p><strong>Spécialité :</strong> Intelligence Artificielle</p>
-                    <p>Spécialiste en IA et Machine Learning avec 20 ans d'expérience. Auteur de plusieurs publications scientifiques.</p>
-                    <div>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">IA</span>
-                    </div>
-                </div>
+            <div class="teacher-carousel" aria-label="Carrousel des professeurs">
+                <button type="button" class="teacher-carousel__btn teacher-carousel__btn--prev" aria-label="Précédent" data-carousel-prev>‹</button>
+                <button type="button" class="teacher-carousel__btn teacher-carousel__btn--next" aria-label="Suivant" data-carousel-next>›</button>
 
-                <div class="card">
-                    <div style="width:84px; height:84px; border-radius:50%; background: var(--primary-blue); color: var(--white); display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:12px;">Dr. S.</div>
-                    <h3>Dr. Sarah Bernard</h3>
-                    <p><strong>Spécialité :</strong> Cybersécurité</p>
-                    <p>Experte en cybersécurité et protection des données. Conseillère en sécurité informatique pour grandes entreprises.</p>
-                    <div>
-                        <span class="tag">Cybersécurité</span>
-                        <span class="tag">Cryptographie</span>
-                        <span class="tag">Sécurité Cloud</span>
-                    </div>
-                </div>
+                <div class="teacher-track" id="teacherTrack" tabindex="0" aria-label="Liste des professeurs">
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/3195-Mohamed-Hamidi-819x1024.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Mohamed Hamidi">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Mohamed Hamidi</span>
+                                        <span class="poste">Enseignant-chercheur en informatique</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
 
-                <div class="card">
-                    <div style="width:84px; height:84px; border-radius:50%; background: var(--primary-blue); color: var(--white); display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:12px;">Dr. P.</div>
-                    <h3>Dr. Pierre Moreau</h3>
-                    <p><strong>Spécialité :</strong> Développement Web</p>
-                    <p>Expert en frameworks web modernes. Fondateur de plusieurs startups tech et mentor pour entrepreneurs.</p>
-                    <div>
-                        <span class="tag">Web Dev</span>
-                        <span class="tag">Full Stack</span>
-                        <span class="tag">DevOps</span>
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Mohamed Hamidi</span>
+                                        <span class="poste">Enseignant-chercheur en informatique</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Mohamed Hamidi a obtenu son doctorat en 2019 à l’Université Med V de Rabat au Maroc en sécurité multimédia et vision par ordinateur. Il a réalisé sa thèse en collaboration avec le Laboratoire d’Informatique de Bourgogne (LIB) de l’Université de Bourgogne à Dijon, et le laboratoire PRISME à l’École Polytechnique d’Orléans.</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div style="width:84px; height:84px; border-radius:50%; background: var(--primary-blue); color: var(--white); display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:12px;">Dr. A.</div>
-                    <h3>Dr. Anne Leclerc</h3>
-                    <p><strong>Spécialité :</strong> Big Data</p>
-                    <p>Spécialiste en traitement des données massives. Collaborations avec des entreprises Fortune 500.</p>
-                    <div>
-                        <span class="tag">Big Data</span>
-                        <span class="tag">Spark</span>
-                        <span class="tag">Hadoop</span>
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/Doc-Nina-Varchavsky-819x1024.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Nina Varchavski-Bergin">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Nina Varchavski-Bergin</span>
+                                        <span class="poste">Doctorante de l&rsquo;axe de recherche « Data et Intelligence Artificielle »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Nina Varchavski-Bergin</span>
+                                        <span class="poste">Doctorante de l&rsquo;axe de recherche « Data et Intelligence Artificielle »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Nina Varchavski-Bergin est doctorante de l&rsquo;axe de recherche « Data et Intelligence Artificielle ».</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div style="width:84px; height:84px; border-radius:50%; background: var(--primary-blue); color: var(--white); display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:12px;">Dr. J.</div>
-                    <h3>Dr. Jean Leblanc</h3>
-                    <p><strong>Spécialité :</strong> Systèmes Embarqués</p>
-                    <p>Expert en systèmes embarqués et IoT. Brevets à son actif dans le domaine de l'automatisation.</p>
-                    <div>
-                        <span class="tag">IoT</span>
-                        <span class="tag">Embedded</span>
-                        <span class="tag">Robotique</span>
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/10/Copie-de-Tech-Numerique-Masters-et-Masteres-819x1024.png" class="attachment-large size-large a42-ac-replace-img" alt="Daniel de Sousa Luz">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Daniel de Sousa Luz</span>
+                                        <span class="poste">Doctorant de l&rsquo;axe de recherche « données et intelligence artificielle »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Daniel de Sousa Luz</span>
+                                        <span class="poste">Doctorant de l&rsquo;axe de recherche « données et intelligence artificielle »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Daniel de Sousa Luz est doctorant de l&rsquo;axe de recherche « données et intelligence artificielle ».</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div style="width:84px; height:84px; border-radius:50%; background: var(--primary-blue); color: var(--white); display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom:12px;">Dr. C.</div>
-                    <h3>Dr. Céline Martin</h3>
-                    <p><strong>Spécialité :</strong> Cloud Computing</p>
-                    <p>Certifiée AWS et Azure. Consultante cloud pour les transitions numériques d'entreprises.</p>
-                    <div>
-                        <span class="tag">Cloud</span>
-                        <span class="tag">AWS</span>
-                        <span class="tag">Architecture</span>
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/3192-Mondher-Maddouri-819x1024.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Mondher Maddouri">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Mondher Maddouri</span>
+                                        <span class="poste">Enseignant-chercheur de l&rsquo;axe de recherche « Données &amp; Intelligence Artificielle »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Mondher Maddouri</span>
+                                        <span class="poste">Enseignant-chercheur de l&rsquo;axe de recherche « Données &amp; Intelligence Artificielle »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Mondher Maddouri est enseignant-chercheur de l&rsquo;axe de recherche « Données &amp; Intelligence Artificielle ».</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/2190-Sandy-MAKHLOUF-1-819x1024.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Sandy Makhlouf">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Sandy Makhlouf</span>
+                                        <span class="poste">Enseignante-chercheuse</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Sandy Makhlouf</span>
+                                        <span class="poste">Enseignante-chercheuse</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Elle a obtenu son doctorat en 2021. Elle a rejoint l&rsquo;Efrei en 2022.</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="1024" height="701" src="https://www.efrei.fr/wp-content/uploads/2025/10/Photos-staff-12-1024x701.png" class="attachment-large size-large a42-ac-replace-img" alt="Daniel Mai">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Daniel Mai</span>
+                                        <span class="poste">Enseignant-chercheur – « Données et Intelligence Artificielle »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Daniel Mai</span>
+                                        <span class="poste">Enseignant-chercheur – « Données et Intelligence Artificielle »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Parcours: master jeux vidéo, master RVSI, doctorat, rejoint l&rsquo;Efrei en 2024.</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/Doc-Ikhlas-MASTOUR-819x1024.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Ikhlass Mastour">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Ikhlass Mastour</span>
+                                        <span class="poste">Doctorante – « Sécurité, Résilience et Confiance Numérique »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Ikhlass Mastour</span>
+                                        <span class="poste">Doctorante – « Sécurité, Résilience et Confiance Numérique »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Ikhlass Mastour est doctorante de l&rsquo;axe de recherche « Sécurité, Résilience et Confiance Numérique ».</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="800" height="550" src="https://www.efrei.fr/wp-content/uploads/2025/10/Marechal-Catherine.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Catherine Marechal">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Catherine Marechal</span>
+                                        <span class="poste">Enseignante-chercheuse – « Systèmes embarqués intelligents »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Catherine Marechal</span>
+                                        <span class="poste">Enseignante-chercheuse – « Systèmes embarqués intelligents »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Catherine a rejoint l&rsquo;Efrei en 1997 (Esigetel) et a un doctorat en électronique.</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="660" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/Mano-Joseph_large-660x1024.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Mano Joseph Mathew">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Mano Joseph Mathew</span>
+                                        <span class="poste">Enseignant-chercheur – « Données et Intelligence Artificielle »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Mano Joseph Mathew</span>
+                                        <span class="poste">Enseignant-chercheur – « Données et Intelligence Artificielle »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Doctorat en microbiologie, rejoint l&rsquo;Efrei en 2019.</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/2056-Zahraa-MOHSEN--819x1024.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Zahraa Mohsen">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Zahraa Mohsen</span>
+                                        <span class="poste">Enseignante-chercheuse</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Zahraa Mohsen</span>
+                                        <span class="poste">Enseignante-chercheuse</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Zahraa Mohsen a obtenu son doctorat en 2022 et rejoint l&rsquo;Efrei en 2023.</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/09/2598_GABRIEL-MORGADO-1.jpg" class="attachment-large size-large a42-ac-replace-img" alt="Gabriel Morgado">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Gabriel Morgado</span>
+                                        <span class="poste">Enseignant-chercheur</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Gabriel Morgado</span>
+                                        <span class="poste">Enseignant-chercheur</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Gabriel débute en recherche durant son master, obtient sa thèse en 2020, rejoint l&rsquo;Efrei en 2023.</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <button type="button" aria-label="Voir les détails" class="flip-card-front">
+                                    <picture class="img">
+                                        <img loading="lazy" decoding="async" width="819" height="1024" src="https://www.efrei.fr/wp-content/uploads/2025/10/Copie-de-Tech-Numerique-Masters-et-Masteres-819x1024.png" class="attachment-large size-large a42-ac-replace-img" alt="Jean Mouchotte">
+                                    </picture>
+                                    <span class="content">
+                                        <span class="nom">Jean Mouchotte</span>
+                                        <span class="poste">Doctorant – « Sécurité, Résilience et Confiance Numérique »</span>
+                                    </span>
+                                    <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                </button>
+
+                                <button type="button" aria-label="Masquer les détails" class="flip-card-back">
+                                    <span class="content-card-back hidden-scrollbar">
+                                        <span class="btn btn-icon"><span class="icon icon-loop" aria-hidden="true"></span></span>
+                                        <span class="nom">Jean Mouchotte</span>
+                                        <span class="poste">Doctorant – « Sécurité, Résilience et Confiance Numérique »</span>
+                                        <div class="texte wysiwyg-content">
+                                            <p>Jean Mouchotte est doctorant de l&rsquo;axe de recherche « Sécurité, Résilience et Confiance Numérique ».</p>
+                                        </div>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="agenda research-section">
-            <h2>Recherche et innovation</h2>
+        <section class="agenda">
+            <div class="program-section__header">
+                <h2>Ce que vous apprendrez</h2>
+                <p>Quelques exemples de compétences travaillées tout au long du cursus informatique.</p>
+            </div>
             <div class="agenda-list">
                 <div class="agenda-item">
-                    <h3>Laboratoire d'IA</h3>
-                    <p>Centre de recherche dédié au développement des techniques d'intelligence artificielle appliquées.</p>
+                    <h3>Développement & conception</h3>
+                    <p>Conception d’applications, architecture logicielle et bonnes pratiques de qualité.</p>
                 </div>
                 <div class="agenda-item">
-                    <h3>Centre de cybersécurité</h3>
-                    <p>Analyse des menaces actuelles et développement de solutions de sécurité innovantes.</p>
+                    <h3>Systèmes, réseaux & cloud</h3>
+                    <p>Comprendre, déployer et sécuriser des infrastructures modernes (Linux, conteneurs, cloud).</p>
                 </div>
                 <div class="agenda-item">
-                    <h3>Hub innovation cloud</h3>
-                    <p>Expérimentation avec les dernières technologies cloud et orchestration de conteneurs.</p>
+                    <h3>Données & IA</h3>
+                    <p>Base de données, data engineering et initiation à l’IA pour résoudre des problèmes concrets.</p>
                 </div>
             </div>
         </section>
 
         <section class="cta" style="text-align:center;">
-            <h2>Rejoindre notre équipe pédagogique</h2>
-            <p>Intéressé par une collaboration ou un projet de recherche ?</p>
+            <h2>Contacter le département</h2>
+            <p>Pour une question sur les cours, les projets ou l’encadrement pédagogique.</p>
             <a class="btn-primary" href="contact.html">Nous contacter</a>
         </section>
     </main>
